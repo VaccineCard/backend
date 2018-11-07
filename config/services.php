@@ -31,7 +31,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => VacineCard\User::class,
+        'model' => VaccineCard\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

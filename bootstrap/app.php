@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    VacineCard\Http\Kernel::class
+    VaccineCard\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    VacineCard\Console\Kernel::class
+    VaccineCard\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    VacineCard\Exceptions\Handler::class
+    VaccineCard\Exceptions\Handler::class
 );
 
 /*

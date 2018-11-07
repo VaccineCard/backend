@@ -1,8 +1,8 @@
 <?php
 
-namespace VacineCard\Http\Controllers\Auth;
+namespace VaccineCard\Http\Controllers\Auth;
 
-use VacineCard\Http\Controllers\Controller;
+use VaccineCard\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

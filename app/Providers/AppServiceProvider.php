@@ -1,6 +1,6 @@
 <?php
 
-namespace VacineCard\Providers;
+namespace VaccineCard\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

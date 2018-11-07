@@ -167,11 +167,11 @@ return [
         /*
          * Application Service Providers...
          */
-        VacineCard\Providers\AppServiceProvider::class,
-        VacineCard\Providers\AuthServiceProvider::class,
-        // VacineCard\Providers\BroadcastServiceProvider::class,
-        VacineCard\Providers\EventServiceProvider::class,
-        VacineCard\Providers\RouteServiceProvider::class,
+        VaccineCard\Providers\AppServiceProvider::class,
+        VaccineCard\Providers\AuthServiceProvider::class,
+        // VaccineCard\Providers\BroadcastServiceProvider::class,
+        VaccineCard\Providers\EventServiceProvider::class,
+        VaccineCard\Providers\RouteServiceProvider::class,
 
     ],
 

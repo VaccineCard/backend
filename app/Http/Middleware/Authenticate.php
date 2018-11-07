@@ -1,6 +1,6 @@
 <?php
 
-namespace VacineCard\Http\Middleware;
+namespace VaccineCard\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 

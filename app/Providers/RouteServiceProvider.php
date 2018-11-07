@@ -1,6 +1,6 @@
 <?php
 
-namespace VacineCard\Providers;
+namespace VaccineCard\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'VacineCard\Http\Controllers';
+    protected $namespace = 'VaccineCard\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

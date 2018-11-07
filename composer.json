@@ -24,7 +24,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "VacineCard\\": "app/"
+            "VaccineCard\\": "app/"
         }
     },
     "autoload-dev": {

@@ -1,9 +1,9 @@
 <?php
 
-namespace VacineCard\Http\Controllers\Auth;
+namespace VaccineCard\Http\Controllers\Auth;
 
-use VacineCard\User;
-use VacineCard\Http\Controllers\Controller;
+use VaccineCard\User;
+use VaccineCard\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \VacineCard\User
+     * @return \VaccineCard\User
      */
     protected function create(array $data)
     {
