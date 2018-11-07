@@ -1,6 +1,6 @@
 <?php
 
-namespace VaccineCard;
+namespace VaccineCard\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
