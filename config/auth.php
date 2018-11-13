@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => VaccineCard\User::class,
+            'model' => VaccineCard\Models\User::class,
         ],
 
         // 'users' => [
