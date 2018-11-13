@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCentersTable extends Migration
+class CreateVaccinatorVaccines extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCentersTable extends Migration
      */
     public function up()
     {
-        Schema::create('centers', function (Blueprint $table) {
+        Schema::create('vaccinator_vaccines', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('state_id');
-            $table->integer('country_id');
-            $table->string('coordenate');
-            $table->enum('focus', ['Humans', 'Animals', 'Humans and Animals']);
+            $table->integer('vaccine_code');
+            $table->integer('vaccinator_id');
+            $table->integer('vaccine_id');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateCentersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('centers');
+        Schema::dropIfExists('vaccinator_vaccines');
     }
 }

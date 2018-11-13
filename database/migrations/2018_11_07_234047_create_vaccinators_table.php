@@ -15,6 +15,8 @@ class CreateVaccinatorsTable extends Migration
     {
         Schema::create('vaccinators', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unique();
+            $table->tinyInteger('state');
             $table->timestamps();
         });
     }
