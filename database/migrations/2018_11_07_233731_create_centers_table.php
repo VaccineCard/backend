@@ -15,6 +15,11 @@ class CreateCentersTable extends Migration
     {
         Schema::create('centers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('state_id');
+            $table->integer('country_id');
+            $table->string('coordenate');
+            $table->enum('focus', ['Humans', 'Animals', 'Humans and Animals']);
             $table->timestamps();
         });
     }
