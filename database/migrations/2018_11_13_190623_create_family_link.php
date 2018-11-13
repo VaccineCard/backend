@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+class CreateFamilyLink extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('id')->unsigned();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('family_links', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unique();
+            $table->integer('family_id')->unique();
+            $table->tinyInteger('state');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('family_links');
     }
 }
