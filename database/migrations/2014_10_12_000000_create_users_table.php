@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('state_id')->unsigned();
             $table->integer('country_id')->unsigned();
             $table->integer('phone');
+            $table->enum('gender', ['F', 'M']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 100);
             $table->rememberToken();
