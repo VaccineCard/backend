@@ -15,8 +15,8 @@ class CreateVaccineCenter extends Migration
     {
         Schema::create('vaccine_centers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('center_id')->unique();
-            $table->integer('vacine_id')->unique();
+            $table->integer('center_id')->unsigned();
+            $table->integer('vaccine_id')->unsigned();
             $table->tinyInteger('state');
             $table->timestamps();
         });

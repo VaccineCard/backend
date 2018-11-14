@@ -20,7 +20,7 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Aland Islands",
-                "code": "358"
+                "code": "358 18"
             },
             {
                 "name": "Albania",
@@ -48,11 +48,11 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Antarctica",
-                "code": "672"
+                "code": ""
             },
             {
-                "name": "Antigua and Barbuda",
-                "code": "1268"
+                "name": "Antigua",
+                "code": "1 268"
             },
             {
                 "name": "Argentina",
@@ -79,7 +79,7 @@ class CountriesSeeder extends Seeder
                 "code": "994"
             },
             {
-                "name": "Bahamas",
+                "name": "Bahamas The",
                 "code": "1 242"
             },
             {
@@ -119,16 +119,20 @@ class CountriesSeeder extends Seeder
                 "code": "975"
             },
             {
-                "name": "Bolivia, Plurinational State of",
+                "name": "Bolivia",
                 "code": "591"
             },
             {
-                "name": "Bosnia and Herzegovina",
+                "name": "Bosnia",
                 "code": "387"
             },
             {
                 "name": "Botswana",
                 "code": "267"
+            },
+            {
+                "name": "Bouvet Island",
+                "code": ""
             },
             {
                 "name": "Brazil",
@@ -139,7 +143,7 @@ class CountriesSeeder extends Seeder
                 "code": "246"
             },
             {
-                "name": "Brunei Darussalam",
+                "name": "Brunei",
                 "code": "673"
             },
             {
@@ -167,12 +171,12 @@ class CountriesSeeder extends Seeder
                 "code": "1"
             },
             {
-                "name": "Cape Verde",
+                "name": "Cabo Verde",
                 "code": "238"
             },
             {
                 "name": "Cayman Islands",
-                "code": " 345"
+                "code": "1 345"
             },
             {
                 "name": "Central African Republic",
@@ -195,7 +199,7 @@ class CountriesSeeder extends Seeder
                 "code": "61"
             },
             {
-                "name": "Cocos (Keeling) Islands",
+                "name": "Cocos Islands",
                 "code": "61"
             },
             {
@@ -211,7 +215,7 @@ class CountriesSeeder extends Seeder
                 "code": "242"
             },
             {
-                "name": "Congo, The Democratic Republic of the Congo",
+                "name": "Congo The Democratic Republic Of The",
                 "code": "243"
             },
             {
@@ -223,7 +227,7 @@ class CountriesSeeder extends Seeder
                 "code": "506"
             },
             {
-                "name": "Cote d\'Ivoire",
+                "name": "Cote D\'Ivoire",
                 "code": "225"
             },
             {
@@ -256,7 +260,11 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Dominican Republic",
-                "code": "1 849"
+                "code": "1 829"
+            },
+            {
+                "name": "East Timor",
+                "code": "670"
             },
             {
                 "name": "Ecuador",
@@ -287,15 +295,15 @@ class CountriesSeeder extends Seeder
                 "code": "251"
             },
             {
-                "name": "Falkland Islands (Malvinas)",
+                "name": "Falkland Islands",
                 "code": "500"
             },
             {
                 "name": "Faroe Islands",
                 "code": "298"
-            },
+           },
             {
-                "name": "Fiji",
+                "name": "Fiji Islands",
                 "code": "679"
             },
             {
@@ -315,11 +323,15 @@ class CountriesSeeder extends Seeder
                 "code": "689"
             },
             {
+                "name": "French Southern Territories",
+                "code": ""
+            },
+            {
                 "name": "Gabon",
                 "code": "241"
             },
             {
-                "name": "Gambia",
+                "name": "Gambia The",
                 "code": "220"
             },
             {
@@ -364,27 +376,27 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Guernsey",
-                "code": "44"
+                "code": "44 1481"
             },
             {
                 "name": "Guinea",
                 "code": "224"
             },
             {
-                "name": "Guinea-Bissau",
+                "name": "Guinea Bissau",
                 "code": "245"
             },
             {
                 "name": "Guyana",
-                "code": "595"
+                "code": "592"
             },
             {
                 "name": "Haiti",
                 "code": "509"
             },
             {
-                "name": "Holy See (Vatican City State)",
-                "code": "379"
+                "name": "Heard and McDonald Islands",
+                "code": " "
             },
             {
                 "name": "Honduras",
@@ -411,7 +423,7 @@ class CountriesSeeder extends Seeder
                 "code": "62"
             },
             {
-                "name": "Iran, Islamic Republic of Persian Gulf",
+                "name": "Iran",
                 "code": "98"
             },
             {
@@ -421,10 +433,6 @@ class CountriesSeeder extends Seeder
             {
                 "name": "Ireland",
                 "code": "353"
-            },
-            {
-                "name": "Isle of Man",
-                "code": "44"
             },
             {
                 "name": "Israel",
@@ -444,7 +452,7 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Jersey",
-                "code": "44"
+                "code": "44 1534"
             },
             {
                 "name": "Jordan",
@@ -452,7 +460,7 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Kazakhstan",
-                "code": "7 7"
+                "code": "7"
             },
             {
                 "name": "Kenya",
@@ -463,11 +471,11 @@ class CountriesSeeder extends Seeder
                 "code": "686"
             },
             {
-                "name": "Korea, Democratic People\'s Republic of Korea",
+                "name": "Korea North\n",
                 "code": "850"
             },
             {
-                "name": "Korea, Republic of South Korea",
+                "name": "Korea South",
                 "code": "82"
             },
             {
@@ -499,7 +507,7 @@ class CountriesSeeder extends Seeder
                 "code": "231"
             },
             {
-                "name": "Libyan Arab Jamahiriya",
+                "name": "Libya",
                 "code": "218"
             },
             {
@@ -515,7 +523,7 @@ class CountriesSeeder extends Seeder
                 "code": "352"
             },
             {
-                "name": "Macao",
+                "name": "Macau",
                 "code": "853"
             },
             {
@@ -547,6 +555,10 @@ class CountriesSeeder extends Seeder
                 "code": "356"
             },
             {
+                "name": "Man (Isle of)",
+                "code": "44 1624"
+            },
+            {
                 "name": "Marshall Islands",
                 "code": "692"
             },
@@ -571,7 +583,7 @@ class CountriesSeeder extends Seeder
                 "code": "52"
             },
             {
-                "name": "Micronesia, Federated States of Micronesia",
+                "name": "Micronesia",
                 "code": "691"
             },
             {
@@ -592,7 +604,7 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Montserrat",
-                "code": "1664"
+                "code": "1 664"
             },
             {
                 "name": "Morocco",
@@ -619,12 +631,12 @@ class CountriesSeeder extends Seeder
                 "code": "977"
             },
             {
-                "name": "Netherlands",
-                "code": "31"
+                "name": "Netherlands Antilles",
+                "code": ""
             },
             {
-                "name": "Netherlands Antilles",
-                "code": "599"
+                "name": "Netherlands The",
+                "code": "31"
             },
             {
                 "name": "New Caledonia",
@@ -675,7 +687,7 @@ class CountriesSeeder extends Seeder
                 "code": "680"
             },
             {
-                "name": "Palestinian Territory, Occupied",
+                "name": "Palestinian Territory Occupied",
                 "code": "970"
             },
             {
@@ -683,7 +695,7 @@ class CountriesSeeder extends Seeder
                 "code": "507"
             },
             {
-                "name": "Papua New Guinea",
+                "name": "Papua new Guinea",
                 "code": "675"
             },
             {
@@ -699,8 +711,8 @@ class CountriesSeeder extends Seeder
                 "code": "63"
             },
             {
-                "name": "Pitcairn",
-                "code": "872"
+                "name": "Pitcairn Island",
+                "code": "870"
             },
             {
                 "name": "Poland",
@@ -712,11 +724,15 @@ class CountriesSeeder extends Seeder
             },
             {
                 "name": "Puerto Rico",
-                "code": "1 939"
+                "code": "1 787"
             },
             {
                 "name": "Qatar",
                 "code": "974"
+            },
+            {
+                "name": "Reunion",
+                "code": "262"
             },
             {
                 "name": "Romania",
@@ -731,19 +747,11 @@ class CountriesSeeder extends Seeder
                 "code": "250"
             },
             {
-                "name": "Reunion",
-                "code": "262"
-            },
-            {
-                "name": "Saint Barthelemy",
-                "code": "590"
-            },
-            {
-                "name": "Saint Helena, Ascension and Tristan Da Cunha",
+                "name": "Saint Helena",
                 "code": "290"
             },
             {
-                "name": "Saint Kitts and Nevis",
+                "name": "Saint Kitts And Nevis",
                 "code": "1 869"
             },
             {
@@ -751,16 +759,20 @@ class CountriesSeeder extends Seeder
                 "code": "1 758"
             },
             {
-                "name": "Saint Martin",
-                "code": "590"
-            },
-            {
                 "name": "Saint Pierre and Miquelon",
                 "code": "508"
             },
             {
-                "name": "Saint Vincent and the Grenadines",
+                "name": "Saint Vincent And The Grenadines",
                 "code": "1 784"
+            },
+            {
+                "name": "Saint Barthelemy",
+                "code": "590"
+            },
+            {
+                "name": "Saint Martin (French part)",
+                "code": "590"
             },
             {
                 "name": "Samoa",
@@ -819,8 +831,12 @@ class CountriesSeeder extends Seeder
                 "code": "27"
             },
             {
-                "name": "South Georgia and the South Sandwich Islands",
-                "code": "500"
+                "name": "South Georgia",
+                "code": ""
+            },
+            {
+                "name": "South Sudan",
+                "code": "211"
             },
             {
                 "name": "Spain",
@@ -839,7 +855,7 @@ class CountriesSeeder extends Seeder
                 "code": "597"
             },
             {
-                "name": "Svalbard and Jan Mayen",
+                "name": "Svalbard And Jan Mayen Islands",
                 "code": "47"
             },
             {
@@ -855,7 +871,7 @@ class CountriesSeeder extends Seeder
                 "code": "41"
             },
             {
-                "name": "Syrian Arab Republic",
+                "name": "Syria",
                 "code": "963"
             },
             {
@@ -867,16 +883,12 @@ class CountriesSeeder extends Seeder
                 "code": "992"
             },
             {
-                "name": "Tanzania, United Republic of Tanzania",
+                "name": "Tanzania",
                 "code": "255"
             },
             {
                 "name": "Thailand",
                 "code": "66"
-            },
-            {
-                "name": "Timor-Leste",
-                "code": "670"
             },
             {
                 "name": "Togo",
@@ -891,7 +903,7 @@ class CountriesSeeder extends Seeder
                 "code": "676"
             },
             {
-                "name": "Trinidad and Tobago",
+                "name": "Trinidad And Tobago",
                 "code": "1 868"
             },
             {
@@ -907,7 +919,7 @@ class CountriesSeeder extends Seeder
                 "code": "993"
             },
             {
-                "name": "Turks and Caicos Islands",
+                "name": "Turks And Caicos Islands",
                 "code": "1 649"
             },
             {
@@ -935,6 +947,10 @@ class CountriesSeeder extends Seeder
                 "code": "1"
             },
             {
+                "name": "United States Minor Outlying Islands",
+                "code": "1"
+                },
+            {
                 "name": "Uruguay",
                 "code": "598"
             },
@@ -947,7 +963,11 @@ class CountriesSeeder extends Seeder
                 "code": "678"
             },
             {
-                "name": "Venezuela, Bolivarian Republic of Venezuela",
+                "name": "Vatican City State",
+                "code": "379"
+            },
+            {
+                "name": "Venezuela",
                 "code": "58"
             },
             {
@@ -955,16 +975,20 @@ class CountriesSeeder extends Seeder
                 "code": "84"
             },
             {
-                "name": "Virgin Islands, British",
+                "name": "Virgin Islands",
                 "code": "1 284"
             },
             {
-                "name": "Virgin Islands, U.S.",
+                "name": "Virgin Islands",
                 "code": "1 340"
             },
             {
-                "name": "Wallis and Futuna",
+                "name": "Wallis And Futuna Islands",
                 "code": "681"
+            },
+            {
+                "name": "Western Sahara",
+                "code": "212"
             },
             {
                 "name": "Yemen",
