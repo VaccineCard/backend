@@ -37,6 +37,16 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
 	- (POST) signin ( Retorna um token e o usuário, caso o login esteja correcto )
 	- (POST) signup
 }
+
+- (Prefixo)location {
+    -(Prefixo) countries {
+        - (GET) all
+        - (GET) {id?}
+        - (GET) {id?}/states
+        - (GET) states/{id?}
+    }
+}
+
 ```
 
 ### Todas Rotas ( Em desenvolvimento ainda )
@@ -45,6 +55,7 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
 - (Prefixo) auth {
 	- (POST) signin ( Retorna um token e o usuário, caso o login esteja correcto )
 	- (POST) signup
+	- (GET) confirm/{code}
 }
 
 - (Prefixo) user {
@@ -55,4 +66,14 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
 		- (POST) confirm
 	}
 }
+
+- (Prefixo)location {
+    -(Prefixo) countries {
+        - (GET) all
+        - (GET) {id?}
+        - (GET) {id?}/states
+        - (GET) states/{id?}
+    }
+}
+
 ```

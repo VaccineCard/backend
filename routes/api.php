@@ -22,3 +22,12 @@ Route::prefix('/auth')->group(function () {
     Route::post('signin', 'UserController@signin');
     Route::post('signup', 'UserController@signup');
 });
+
+Route::prefix('/location')->group(function () {
+    Route::prefix('countries')->group(function () {
+        Route::get('all', 'LocationController@getCountries');
+        Route::get('{id?}', 'LocationController@getCountry');
+        Route::get('{id?}/states', 'LocationController@getStates');
+        Route::get('states/{id?}', 'LocationController@getState');
+    });
+});
