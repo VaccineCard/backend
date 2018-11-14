@@ -10,7 +10,7 @@ use JWTAuth;
 
 class UserController extends Controller
 {
-    public function signIn (Request $request) {
+    public function signin (Request $request) {
 
         $request->validate([
             'email' => 'required|email',
@@ -44,7 +44,7 @@ class UserController extends Controller
         }
     }
 
-    public function signUp (Request $request) {
+    public function signup (Request $request) {
         
         $request->validate([
             'name' => 'required',
