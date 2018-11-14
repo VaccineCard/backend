@@ -33,7 +33,7 @@ Route::prefix('/location')->group(function () {
 });
 
 Route::prefix('/user')->group(function () {
-    Route::get('{id?}', 'UserController@getUser');
+    Route::get('{id?}', 'UserController@getUserInformationById');
     Route::prefix('family')->group(function () {
         Route::post('add', 'FamilyController@AddMember');
         Route::post('confirm', 'FamilyController@ConfirmMember');
