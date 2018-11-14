@@ -19,8 +19,8 @@ use Illuminate\Http\Request;
 */
 
 Route::prefix('/auth')->group(function () {
-    Route::post('signin', 'UserController@signin');
-    Route::post('signup', 'UserController@signup');
+    Route::post('signin', 'AuthController@signin');
+    Route::post('signup', 'AuthController@signup');
 });
 
 Route::prefix('/location')->group(function () {
