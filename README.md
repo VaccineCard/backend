@@ -76,4 +76,35 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
     }
 }
 
+
+- (Prefixo) doctor {
+    - (GET) {id?}
+    - (POST) add
+    - (DELETE) remove
+
+    -(Prefix) admin {
+        - (PUT) update/{id}
+		- (POST) register
+        - (POST) registervaccine
+    }
+}
+
+
+- (Prefixo) vaccines {
+    - (GET) {id?}
+    - (POST) add
+    - (DELETE) remove
+}
+
+- (Prefixo) centers {
+    - (GET) {id?}
+    - (POST) add
+    - (DELETE) remove/{id?}
+    
+    - (Prefixo) doctor {
+        -(POST) add
+		- (DELETE) remove/{id?}
+    }
+}
+
 ```
