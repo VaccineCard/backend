@@ -13,7 +13,7 @@ class CreateVaccinatorCenter extends Migration
      */
     public function up()
     {
-        Schema::create('vaccinator_center', function (Blueprint $table) {
+        Schema::create('vaccinator_centers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('center_id')->unique();
             $table->integer('vaccinator_id')->unique();
@@ -29,6 +29,6 @@ class CreateVaccinatorCenter extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vaccinator_center');
+        Schema::dropIfExists('vaccinator_centers');
     }
 }

@@ -17,7 +17,7 @@ class CreateAnimalsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->date('birth_date');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('document_id')->unique();
             $table->timestamps();
         });

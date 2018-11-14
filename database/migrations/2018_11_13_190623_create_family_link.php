@@ -15,8 +15,8 @@ class CreateFamilyLink extends Migration
     {
         Schema::create('family_links', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unique();
-            $table->integer('family_id')->unique();
+            $table->integer('user_id')->unsigned();
+            $table->integer('family_id')->unsigned();
             $table->tinyInteger('state');
             $table->timestamps();
         });
