@@ -34,6 +34,7 @@ Route::prefix('/locations')->group(function () {
 
 Route::prefix('/patients')->group(function () {
     Route::get('{id?}', 'UserController@getUserInformationById');
+    Route::get('{id}/vaccines', 'UserController@getAllUserVaccines');
     Route::prefix('family')->group(function () {
         Route::get('{id?}', 'FamilyController@getMembers');
         Route::post('add', 'FamilyController@addMember');

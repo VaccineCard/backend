@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class AlterTablesContraints extends Migration
+class AlterTableContraints extends Migration
 {
     /**
      * Run the migrations.
@@ -13,26 +13,25 @@ class AlterTablesContraints extends Migration
      */
     public function up()
     {
-         //Table users
-         Schema::table('users', function (Blueprint $table) {
-
+        //Table users
+        Schema::table('users', function (Blueprint $table) {
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('state_id')->references('id')->on('states');
         });
 
-         //Table centers
-         Schema::table('centers', function (Blueprint $table) {
+        //Table centers
+        Schema::table('centers', function (Blueprint $table) {
 
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('country_id')->references('id')->on('countries');
         });
 
-         //Table animals
-         Schema::table('animals', function (Blueprint $table) {
+        //Table animals
+        Schema::table('animals', function (Blueprint $table) {
 
             $table->foreign('user_id')->references('id')->on('users');
         });
-        
+
         //Table vaccinators
         Schema::table('vaccinators', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
@@ -61,6 +60,13 @@ class AlterTablesContraints extends Migration
             $table->foreign('vaccine_id')->references('id')->on('vaccines');
         });
 
+        //Table vaccinator_vaccines
+        Schema::table('user_vaccines', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('vaccinator_id')->references('id')->on('vaccinators');
+            $table->foreign('vaccine_id')->references('id')->on('vaccines');
+        });
+
         //Table states
         Schema::table('states', function (Blueprint $table) {
             $table->foreign('country_id')->references('id')->on('countries');
@@ -80,18 +86,18 @@ class AlterTablesContraints extends Migration
             $table->dropForeign('users_state_id_foreign');
         });
 
-         //Table centers
+        //Table centers
         Schema::table('centers', function (Blueprint $table) {
 
             $table->dropForeign('centers_country_id_foreign');
             $table->dropForeign('centers_state_id_foreign');
         });
 
-         //Table animals
+        //Table animals
         Schema::table('animals', function (Blueprint $table) {
             $table->dropForeign('animals_user_id_foreign');
         });
-        
+
         //Table vaccinators
         Schema::table('vaccinators', function (Blueprint $table) {
             $table->dropForeign('vaccinators_user_id_foreign');
@@ -124,9 +130,16 @@ class AlterTablesContraints extends Migration
             $table->dropForeign('vaccinator_vaccines_vaccine_id_foreign');
         });
 
+        Schema::table('user_vaccines', function (Blueprint $table) {
+            $table->dropForeign('user_vaccines_vaccinator_id_foreign');
+            $table->dropForeign('user_vaccines_vaccine_id_foreign');
+            $table->dropForeign('user_vaccines_user_id_foreign');
+        });
+
         //Table states
         Schema::table('states', function (Blueprint $table) {
             $table->dropForeign('states_country_id_foreign');
         });
     }
+
 }
