@@ -17,14 +17,8 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        $token = $this->checkIfUserWasAuthenticate($credentials);
-        
-        $user = User::where("email", $credentials["email"])->first();
 
-        return response()->json([
-            'token' => $token,
-            'user' => $user
-        ], 200);
+        return $this->checkIfUserWasAuthenticate($credentials);
     }
 
     protected function checkIfUserWasAuthenticate($credentials)
@@ -35,7 +29,14 @@ class AuthController extends Controller
                     'error' => 'Invalid Credentials!'
                 ], 401);
             }
-            return $token;
+
+            $user = User::where("email", $credentials["email"])->first();
+
+            return response()->json([
+                    'token' => $token,
+                    'user' => $user
+                ], 200);
+
         } catch (JWTException $e) {
             return response()->json([
                 'error' => 'Could not create token!'
