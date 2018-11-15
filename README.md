@@ -58,10 +58,10 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
 	- (GET) confirm/{code}
 }
 
-- (Prefixo) user {
-	- (GET) {id}
+- (Prefixo) patients {
+	- (GET) {id?}
 	- (Prefixo) family {
-		- (GET) members
+		- (GET) /{id?}
 		- (POST) add
 		- (POST) confirm
 	}
@@ -69,7 +69,7 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
 
 - (Prefixo)location {
     -(Prefixo) countries {
-        - (GET) all
+        - (GET) /
         - (GET) {id?}
         - (GET) {id?}/states
         - (GET) states/{id?}
@@ -77,7 +77,7 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
 }
 
 
-- (Prefixo) doctor {
+- (Prefixo) doctors {
     - (GET) {id?}
     - (POST) add
     - (DELETE) remove
