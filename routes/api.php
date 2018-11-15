@@ -23,16 +23,16 @@ Route::prefix('/auth')->group(function () {
     Route::post('signup', 'AuthController@signup');
 });
 
-Route::prefix('/location')->group(function () {
+Route::prefix('/locations')->group(function () {
     Route::prefix('countries')->group(function () {
-        Route::get('all', 'LocationController@getCountries');
+        Route::get('/', 'LocationController@getCountries');
         Route::get('{id?}', 'LocationController@getCountry');
         Route::get('{id?}/states', 'LocationController@getStates');
         Route::get('states/{id?}', 'LocationController@getState');
     });
 });
 
-Route::prefix('/user')->group(function () {
+Route::prefix('/patients')->group(function () {
     Route::get('{id?}', 'UserController@getUserInformationById');
     Route::prefix('family')->group(function () {
         Route::post('add', 'FamilyController@AddMember');
@@ -41,11 +41,11 @@ Route::prefix('/user')->group(function () {
     });
 });
 
-Route::prefix('/doctor')->group(function () {
+Route::prefix('/doctors')->group(function () {
     Route::get('{id?}', 'DoctorController@getDoctor');
     Route::post('add', 'DoctorController@AddDoctor');
     Route::delete('remove', 'DoctorController@Remove');
-    
+
     Route::prefix('admin')->group(function () {
         Route::put('update/{id}', 'DoctorController@UpdateInformation');
         Route::post('register', 'DoctorController@RegisterDoctor');
@@ -64,7 +64,7 @@ Route::prefix('/centers')->group(function () {
     Route::get('{id?}', 'CenterController@getCenter');
     Route::post('add', 'CenterController@AddCenter');
     Route::delete('remove/{id}', 'CenterController@RemoveCenter');
-    
+
     Route::prefix('doctor')->group(function () {
         Route::post('add', 'CenterController@AddDoctor');
         Route::delete('remove/{id}', 'CenterController@RemoveDoctor');
