@@ -35,38 +35,38 @@ Route::prefix('/locations')->group(function () {
 Route::prefix('/patients')->group(function () {
     Route::get('{id?}', 'UserController@getUserInformationById');
     Route::prefix('family')->group(function () {
-        Route::post('add', 'FamilyController@AddMember');
-        Route::post('confirm', 'FamilyController@ConfirmMember');
-        Route::get('get', 'FamilyController@GetMembers');
+        Route::get('/', 'FamilyController@getMembers');
+        Route::post('add', 'FamilyController@addMember');
+        Route::post('confirm', 'FamilyController@confirmMember');
     });
 });
 
 Route::prefix('/doctors')->group(function () {
     Route::get('{id?}', 'DoctorController@getDoctor');
-    Route::post('add', 'DoctorController@AddDoctor');
-    Route::delete('remove', 'DoctorController@Remove');
+    Route::post('add', 'DoctorController@addDoctor');
+    Route::delete('remove', 'DoctorController@removeDoctor');
 
     Route::prefix('admin')->group(function () {
-        Route::put('update/{id}', 'DoctorController@UpdateInformation');
-        Route::post('register', 'DoctorController@RegisterDoctor');
-        Route::post('registervaccine', 'DoctorController@RegisterVaccine');
+        Route::put('update/{id}', 'DoctorController@updateInformation');
+        Route::post('register', 'DoctorController@registerDoctor');
+        Route::post('registervaccine', 'DoctorController@registerVaccine');
     });
 });
 
 
 Route::prefix('/vaccines')->group(function () {
     Route::get('{id?}', 'VaccineController@getVaccine');
-    Route::post('add', 'VaccineController@AddVaccine');
-    Route::delete('remove', 'VaccineController@RemoveVaccine');
+    Route::post('add', 'VaccineController@addVaccine');
+    Route::delete('remove', 'VaccineController@removeVaccine');
 });
 
 Route::prefix('/centers')->group(function () {
     Route::get('{id?}', 'CenterController@getCenter');
-    Route::post('add', 'CenterController@AddCenter');
-    Route::delete('remove/{id}', 'CenterController@RemoveCenter');
+    Route::post('add', 'CenterController@addCenter');
+    Route::delete('remove/{id}', 'CenterController@removeCenter');
 
     Route::prefix('doctor')->group(function () {
-        Route::post('add', 'CenterController@AddDoctor');
-        Route::delete('remove/{id}', 'CenterController@RemoveDoctor');
+        Route::post('add', 'CenterController@addDoctor');
+        Route::delete('remove/{id}', 'CenterController@removeDoctor');
     });
 });
