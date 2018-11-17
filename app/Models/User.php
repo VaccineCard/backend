@@ -45,4 +45,8 @@ class User extends Authenticatable
     {
         return $this->family_sender()->union($this->family_recive()->toBase());
     }
+
+    public function vaccines () {
+        return $this->hasMany(UserVaccine::class);
+    }
 }

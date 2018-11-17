@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vaccine extends Model
 {
-    //
+    protected $guarded = [];
+
+
+    public function users() {
+        return $this->hasMany(UserVaccine::class);
+    }
 }

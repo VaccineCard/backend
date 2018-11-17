@@ -61,6 +61,13 @@ class AlterTablesContraints extends Migration
             $table->foreign('vaccine_id')->references('id')->on('vaccines');
         });
 
+        // Table user_vaccines 
+        Schema::table('user_vaccines', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('vaccine_id')->references('id')->on('vaccines');
+            $table->foreign('vaccinator_id')->references('id')->on('vaccinators');
+        });
+
         //Table states
         Schema::table('states', function (Blueprint $table) {
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
@@ -122,6 +129,13 @@ class AlterTablesContraints extends Migration
         Schema::table('vaccinator_vaccines', function (Blueprint $table) {
             $table->dropForeign('vaccinator_vaccines_vaccinator_id_foreign');
             $table->dropForeign('vaccinator_vaccines_vaccine_id_foreign');
+        });
+
+        // Table user_vaccines
+        Schema::table('user_vaccines', function (Blueprint $table) {
+            $table->dropForeign('user_vaccines_user_id_foreign');
+            $table->dropForeign('user_vaccines_vaccine_id_foreign');
+            $table->dropForeign('user_vaccines_vaccinator_id_foreign');
         });
 
         //Table states

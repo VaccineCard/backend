@@ -3,7 +3,6 @@
 namespace VaccineCard\Http\Controllers;
 
 use Illuminate\Http\Request;
-use VaccineCard\Models\FamilyLink;
 use VaccineCard\Models\User;
 
 class FamilyController extends Controller
@@ -25,6 +24,12 @@ class FamilyController extends Controller
     }
 
     public function getInformationByMember (int $member_id) {
-        
+        $memberInfo = (object) [];
+        $memberInfo->info = User::find($member_id);
+        $memberInfo->vaccines = User::find($member_id)->vaccines;
+
+        return response()->json([
+            "member" => $memberInfo
+        ], 200);
     }
 }
