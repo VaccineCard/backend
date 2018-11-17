@@ -37,7 +37,7 @@ Route::prefix('/patients')->group(function () {
     Route::prefix('family')->group(function () {
         Route::get('/{id}', 'FamilyController@getMembers');
         Route::get('info/{member_id}', 'FamilyController@getInformationByMember');
-        Route::post('add', 'FamilyController@addMember');
+        Route::post('add', 'FamilyController@addNewMember');
         Route::post('confirm', 'FamilyController@confirmMember');
     });
 });
