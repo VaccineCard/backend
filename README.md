@@ -47,6 +47,16 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
     }
 }
 
+- (Prefixo) patients {
+	- (GET) {id?}
+	- (Prefixo) family {
+		- (GET) /{id?}
+        - (GET) /info/{member_id}
+		- (POST) add
+		- (POST) confirm
+	}
+}
+
 ```
 
 ### Todas Rotas ( Em desenvolvimento ainda )
@@ -62,6 +72,7 @@ O `db:seed` gera dados na BD com os países e estados do mundo.
 	- (GET) {id?}
 	- (Prefixo) family {
 		- (GET) /{id?}
+        - (GET) /info/{member_id}
 		- (POST) add
 		- (POST) confirm
 	}
