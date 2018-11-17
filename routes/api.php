@@ -56,7 +56,7 @@ Route::prefix('/doctors')->group(function () {
 
 Route::prefix('/vaccines')->group(function () {
     Route::get('{id?}', 'VaccineController@getVaccine');
-    Route::post('add', 'VaccineController@addVaccine');
+    Route::post('add', 'VaccineController@addNewVaccine');
     Route::delete('remove', 'VaccineController@removeVaccine');
 });
 
