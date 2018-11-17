@@ -9,15 +9,14 @@ use VaccineCard\Models\State;
 class LocationController extends Controller
 {
     public function getCountries () {
-        $countries = Country::get();
+        $countries = Country::all();
         return response()->json([
             'countries' => $countries
         ], 200);
     }
 
     public function getCountry(int $country_id) {
-        $country = Country::where('id', $country_id)
-                    ->first();
+        $country = Country::find($country_id);
 
         return response()->json([
             'country' => $country

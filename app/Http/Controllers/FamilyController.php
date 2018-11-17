@@ -9,17 +9,22 @@ use VaccineCard\Models\User;
 class FamilyController extends Controller
 {
     public function getMembers (int $user_id) {
-        $familiesMembers = FamilyLink::where('user_id', $user_id)
-                                        ->where('state', 2)
-                                        ->get();
-        $membersList = [];
+        $myFamilyMembers = User::find($user_id)->families;
 
-        foreach($familiesMembers as $member) {
-            array_push($membersList,  User::where('id', $member->family_id)->first());
-        }
+       foreach($myFamilyMembers as $key => $member) {
+            $membersList = User::where('id', $member->family_id)
+                                ->select('name', 'phone')->first();
+
+            $myFamilyMembers[$key]->family_name = $membersList->name;
+            $myFamilyMembers[$key]->phone = $membersList->phone; 
+        } 
 
         return response()->json([
-            'members' => $membersList
-        ], 200);
+            'members' => $myFamilyMembers
+        ], 200); 
+    }
+
+    public function getInformationByMember (int $member_id) {
+        
     }
 }
