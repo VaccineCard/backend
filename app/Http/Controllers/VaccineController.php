@@ -68,6 +68,6 @@ class VaccineController extends Controller
 
         return response()->json([
             "error" => "The vaccine was not deleted!"
-        ], 204);
+        ], 200);
     }
 }

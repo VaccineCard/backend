@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVaccinatorVaccines extends Migration
+class CreateUserVaccinatorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateVaccinatorVaccines extends Migration
      */
     public function up()
     {
-        Schema::create('vaccinator_vaccines', function (Blueprint $table) {
+        Schema::create('user_vaccinators', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->integer('vaccinator_id')->unsigned();
-            $table->integer('vaccine_id')->unsigned();
+            $table->tinyInteger('state');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateVaccinatorVaccines extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vaccinator_vaccines');
+        Schema::dropIfExists('user_vaccinators');
     }
 }

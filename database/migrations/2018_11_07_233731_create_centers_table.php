@@ -18,7 +18,8 @@ class CreateCentersTable extends Migration
             $table->string('name');
             $table->integer('state_id')->unsigned();
             $table->integer('country_id')->unsigned();
-            $table->string('coordenate');
+            $table->string('longitude');
+            $table->string('latitude');
             $table->enum('focus', ['Humans', 'Animals', 'Humans and Animals']);
             $table->timestamps();
         });
