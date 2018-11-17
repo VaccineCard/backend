@@ -32,7 +32,7 @@ Route::prefix('/locations')->group(function () {
     });
 });
 
-Route::prefix('/patients')->group(function () {
+Route::middleware('auth.jwt')->prefix('/patients')->group(function () {
     Route::get('{id?}', 'UserController@getUserInformationById');
     Route::prefix('family')->group(function () {
         Route::get('/{id}', 'FamilyController@getMembers');
@@ -41,10 +41,10 @@ Route::prefix('/patients')->group(function () {
     });
 });
 
-Route::prefix('/doctors')->group(function () {
+Route::middleware('auth.jwt')->prefix('/doctors')->group(function () {
     Route::get('{id}', 'DoctorController@getDoctor');
-    Route::post('addnewpacient', 'DoctorController@addNewPacient');
-    Route::delete('remove', 'DoctorController@removeDoctor');
+    Route::post('addnewpatient', 'DoctorController@addNewPatient');
+    Route::delete('removepatient', 'DoctorController@removePatient');
 
     Route::prefix('admin')->group(function () {
         Route::put('update/{id}', 'DoctorController@updateInformation');
@@ -54,19 +54,19 @@ Route::prefix('/doctors')->group(function () {
 });
 
 
-Route::prefix('/vaccines')->group(function () {
+Route::middleware('auth.jwt')->prefix('/vaccines')->group(function () {
     Route::get('{id?}', 'VaccineController@getVaccine');
     Route::post('add', 'VaccineController@addNewVaccine');
     Route::delete('remove', 'VaccineController@removeVaccine');
 });
 
-Route::prefix('/centers')->group(function () {
+Route::middleware('auth.jwt')->prefix('/centers')->group(function () {
     Route::get('{id?}', 'CenterController@getCenterByCategory');
     Route::post('add', 'CenterController@createNewCenter');
     Route::delete('remove', 'CenterController@removeCenter');
 
     Route::prefix('doctor')->group(function () {
-        Route::post('add', 'CenterController@addDoctor');
+        Route::post('confirm', 'CenterController@corfirmDoctor');
         Route::delete('remove/{id}', 'CenterController@removeDoctor');
     });
 });

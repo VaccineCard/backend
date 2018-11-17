@@ -15,7 +15,6 @@ class CreateVaccinatorVaccines extends Migration
     {
         Schema::create('vaccinator_vaccines', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('vaccine_code');
             $table->integer('vaccinator_id')->unsigned();
             $table->integer('vaccine_id')->unsigned();
             $table->timestamps();

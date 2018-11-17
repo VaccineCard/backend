@@ -2,6 +2,7 @@
 
 namespace VaccineCard\Http\Controllers;
 
+use VaccineCard\Models\UserVaccinator;
 use VaccineCard\Models\Vaccinator;
 use VaccineCard\Models\Center;
 use VaccineCard\Models\User;
@@ -70,22 +71,102 @@ class DoctorController extends Controller
         ], 200);
     }
 
-    public function addNewPacient(Request $request) {
+    public function addNewPatient(Request $request) {
+        $request->validate([
+            "user_email" => "required",
+            "vaccinator_id" => "required"
+        ]);
+        
+        $newPacient = ( object ) $request->only("user_email", "vaccinator_id");
+
+        $user = User::where("email", $newPacient->user_email)->first();
+
+
+        if(! $user['id']) {
+            return response()->json ([
+                "error" => "User doesn't exists!!!"
+            ], 401);
+        }
+
+
+        $newPacient->user_id = $user['id'];
+
+        $newPacient->state = 1;
+
+        unset($newPacient->user_email);
+
+        unset($user);
+        
+        $req = UserVaccinator::firstOrNew((array) $newPacient);
+
+        if($req['id']) {
+            return response()->json ([
+                "warn" => "Already exist an request for this patient, please wait for confirmation!"
+            ], 200);
+        }
+
+        $req->save();
+
+        return response()->json ([
+            "success" => "Request was created!"
+        ], 201);
+
+    }
+
+    public function getAllPatients(int $doctor_id) {
+        $patients = UserPatients::where('vaccinator_id', $doctor_id)->patients;
+
+        return response()->json([
+            "patients" => $patients
+        ], 200);
+    }
+
+    public function registerVaccine(Request $request) {
+        $request->validate([
+            "vaccinator_id" => "required",
+            "vaccine_id" => "required",
+        ]);
+
+        $vaccine = $request->only("vaccinator_id", "vaccine_id");
+
+        $addVaccine = \VaccineCard\Models\VaccinatorVaccine::firstOrNew($vaccine);
+
+        if($addVaccine['id']) {
+            return response()->json([
+                "warn" => "Already exist this combination."
+            ], 200);
+        }
+
+        $addVaccine->save();
+        return response()->json([
+            "success" => "Vaccine was add to vaccinator"
+        ], 201);
+    }
+
+    public function removePatient(Request $request) {
         $request->validate([
             "user_id" => "required",
             "vaccinator_id" => "required"
         ]);
         
-        $newPacient = ( object ) $request->only("user_id", "vaccinator_id");
+        $newPacient = $request->only("user_id", "vaccinator_id");
 
-        $user = (object) User::where("email", $newPacient->user_id)
-                    ->orWhere("phone", $newPacient->user_id)
-                    ->firstOrFail();
+        $req = UserVaccinator::where($newPacient)->first();
 
-        $newPacient->user_id = $user->id;
+        if(! $req['id']) {
+            return response()->json ([
+                "error" => "Link not founded"
+            ], 200);
+        }
 
-        unset($user);
-        
-        $req = UserVaccinator::firstOrNew((array) $newPacient);
+        $req->delete();
+
+        return response()->json ([
+            "success" => "Link was deleted!"
+        ], 200);
+    }
+
+    public function updateInformation(Request $request) {
+        // 
     }
 }
