@@ -42,8 +42,8 @@ Route::prefix('/patients')->group(function () {
 });
 
 Route::prefix('/doctors')->group(function () {
-    Route::get('{id?}', 'DoctorController@getDoctor');
-    Route::post('add', 'DoctorController@addDoctor');
+    Route::get('{id}', 'DoctorController@getDoctor');
+    Route::post('addnewpacient', 'DoctorController@addNewPacient');
     Route::delete('remove', 'DoctorController@removeDoctor');
 
     Route::prefix('admin')->group(function () {
@@ -61,9 +61,9 @@ Route::prefix('/vaccines')->group(function () {
 });
 
 Route::prefix('/centers')->group(function () {
-    Route::get('{id?}', 'CenterController@getCenter');
-    Route::post('add', 'CenterController@addCenter');
-    Route::delete('remove/{id}', 'CenterController@removeCenter');
+    Route::get('{id?}', 'CenterController@getCenterByCategory');
+    Route::post('add', 'CenterController@createNewCenter');
+    Route::delete('remove', 'CenterController@removeCenter');
 
     Route::prefix('doctor')->group(function () {
         Route::post('add', 'CenterController@addDoctor');

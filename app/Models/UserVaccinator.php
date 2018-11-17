@@ -4,7 +4,7 @@ namespace VaccineCard\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Center extends Model
+class UserVaccinator extends Model
 {
-    protected $guarded = [];
+    //
 }
