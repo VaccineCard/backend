@@ -9,7 +9,7 @@ use VaccineCard\Models\State;
 class LocationController extends Controller
 {
     public function getCountries () {
-        $countries = Country::all();
+        $countries = Country::get();
         return response()->json([
             'countries' => $countries
         ], 200);
