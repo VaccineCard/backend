@@ -16,8 +16,7 @@ class LocationController extends Controller
     }
 
     public function getCountry(int $country_id) {
-        $country = Country::where('id', $country_id)
-                    ->first();
+        $country = Country::find($country_id);
 
         return response()->json([
             'country' => $country
@@ -25,8 +24,7 @@ class LocationController extends Controller
     }
 
     public function getStates (int $country_id) {
-        $statesByCountry = State::where('country_id', $country_id)
-                                ->get();
+        $statesByCountry = Country::find($country_id)->states;
             
         return response()->json([
             'states' => $statesByCountry

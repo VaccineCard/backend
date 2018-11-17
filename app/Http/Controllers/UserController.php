@@ -9,8 +9,7 @@ use VaccineCard\Models\User;
 class UserController extends Controller
 {
    protected function getUserInformationById(int $id) {
-        $userById = User::where('id', $id)
-                    ->first();
+        $userById = User::find($id);
         
         if($userById)
             return response()->json([
