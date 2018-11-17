@@ -9,17 +9,13 @@ use VaccineCard\Models\User;
 class UserController extends Controller
 {
    protected function getUserInformationById(int $id) {
-        $userById = User::find($id);
-        
-        if($userById)
-            return response()->json([
-                'user' => $userById
-            ], 200);
-        else
-            return response()->json([
-                'error' => 'No users founded!'
-            ], 404);
+        $user = (object) [];
+        $user->info = User::where('id', $id)->firstOrFail();
+        $user->vaccines = User::find($id)->vaccines;
 
+        return response()->json([
+            "user" => $user,
+        ], 200);
    }
 
    protected function updateUserInformation(Request $request) {

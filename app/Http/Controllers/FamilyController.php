@@ -85,15 +85,4 @@ class FamilyController extends Controller
             "error" => "Request unauthorized",
         ], 401);
     }
-
-    public function getInformationByMember(int $member_id)
-    {
-        $memberInfo = (object) [];
-        $memberInfo->info = User::find($member_id);
-        $memberInfo->vaccines = User::find($member_id)->vaccines;
-
-        return response()->json([
-            "member" => $memberInfo,
-        ], 200);
-    }
 }
