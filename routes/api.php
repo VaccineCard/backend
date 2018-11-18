@@ -61,7 +61,7 @@ Route::middleware('auth.jwt')->prefix('/vaccines')->group(function () {
     Route::delete('', 'VaccineController@removeVaccine');
 });
 
-Route::middleware('auth.jwt')->prefix('/centers')->group(function () {
+Route::prefix('/centers')->group(function () {
     Route::get('{id?}', 'CenterController@getCenterByCategory');
     Route::post('', 'CenterController@createNewCenter');
     Route::delete('', 'CenterController@removeCenter');

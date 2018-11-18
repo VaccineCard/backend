@@ -5,6 +5,7 @@ namespace VaccineCard\Http\Controllers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use VaccineCard\Models\VaccineCenter;
 use VaccineCard\Models\Center;
+use VaccineCard\Models\State;
 use Illuminate\Http\Request;
 
 class CenterController extends Controller
@@ -71,6 +72,12 @@ class CenterController extends Controller
 
       $avalibleCenters = [];
       if(! empty($centers)) $avalibleCenters = $centers->centers($category);
+
+      foreach ($avalibleCenters as $key => $center) {
+          $avalibleCenters[$key]["state_id"] = State::find($center['id'])['name'];
+          $avalibleCenters[$key]["country_id"] = State::find($center['id'])->country['name'];
+
+      }
 
       return $avalibleCenters;
     }
