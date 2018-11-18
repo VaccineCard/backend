@@ -1004,7 +1004,7 @@ class CountriesSeeder extends Seeder
             }
         ]
         ';
-        
+
         $countryArray = json_decode($countriesJson, true);
         DB::table('countries')->insert($countryArray);
     }

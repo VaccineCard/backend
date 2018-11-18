@@ -2,41 +2,59 @@
 
 namespace VaccineCard\Http\Controllers;
 
-use Illuminate\Http\Request;
 use VaccineCard\Models\Country;
 use VaccineCard\Models\State;
 
 class LocationController extends Controller
 {
-    public function getCountries () {
+    /**
+     * @method POST
+     */
+    public function getCountries()
+    {
         $countries = Country::get();
         return response()->json([
-            'countries' => $countries
+            'countries' => $countries,
         ], 200);
     }
 
-    public function getCountry(int $country_id) {
+    /**
+     * @method GET
+     * @param int $country_id
+     */
+    public function getCountry(int $country_id)
+    {
         $country = Country::find($country_id);
 
         return response()->json([
-            'country' => $country
+            'country' => $country,
         ], 200);
     }
 
-    public function getStates (int $country_id) {
+    /**
+     * @method GET
+     * @param int $country_id
+     */
+    public function getStates(int $country_id)
+    {
         $statesByCountry = Country::find($country_id)->states;
-            
+
         return response()->json([
-            'states' => $statesByCountry
-        ],200);
+            'states' => $statesByCountry,
+        ], 200);
     }
 
-    public function getState (int $state_id) {
+    /**
+     * @method GET
+     * @param int $state_id
+     */
+    public function getState(int $state_id)
+    {
         $statesById = State::where('id', $state_id)
-                    ->first();
-        
+            ->first();
+
         return response()->json([
-            'state' => $statesById
-        ],200);
+            'state' => $statesById,
+        ], 200);
     }
 }

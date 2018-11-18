@@ -8,6 +8,10 @@ use VaccineCard\Models\User;
 
 class FamilyController extends Controller
 {
+    /**
+     * @method GET
+     * @param int $user_id
+     */
     public function getMembers(int $user_id)
     {
         $myFamilyMembers = User::find($user_id)->families;
@@ -25,6 +29,10 @@ class FamilyController extends Controller
         ], 200);
     }
 
+    /**
+     * @method POST
+     * @param Request $request
+     */
     public function addNewMember(Request $request)
     {
         $request->validate([
@@ -57,6 +65,11 @@ class FamilyController extends Controller
         }
 
     }
+
+    /**
+     * @method POST
+     * @param Request $request
+     */
 
     public function confirmMember(Request $request)
     {

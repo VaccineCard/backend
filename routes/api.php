@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -11,12 +9,12 @@ use Illuminate\Http\Request;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 /* Route::middleware('auth:api')->group('/auth', function (Request $request) {
-    return $request->user();
+return $request->user();
 });
-*/
+ */
 
 Route::prefix('/auth')->group(function () {
     Route::post('signin', 'AuthController@signin');
@@ -53,7 +51,6 @@ Route::middleware('auth.jwt')->prefix('/doctors')->group(function () {
     });
 });
 
-
 Route::middleware('auth.jwt')->prefix('/vaccines')->group(function () {
     Route::get('/', 'VaccineController@getAllVaccines');
     Route::get('{id?}', 'VaccineController@getVaccine');
@@ -72,7 +69,7 @@ Route::prefix('/centers')->group(function () {
     });
 
     Route::prefix('vaccines')->group(function () {
-      Route::get('{vaccine}/{category}', 'CenterController@getVaccineCenters');
-      Route::post('', 'CenterController@addNewVaccineToCenter');
+        Route::get('{vaccine}/{category}', 'CenterController@getVaccineCenters');
+        Route::post('', 'CenterController@addNewVaccineToCenter');
     });
 });

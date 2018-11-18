@@ -8,11 +8,13 @@ class UserVaccinator extends Model
 {
     protected $guarded = [];
 
-    public function patients () {
+    public function patients()
+    {
         return $this->hasMany(User::class)->where('state', 2);
     }
 
-    public function doctors () {
+    public function doctors()
+    {
         return $this->hasMany(Vaccinators::class)->where('state', 2);
     }
 }

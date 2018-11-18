@@ -11,7 +11,7 @@ class StatesSeeder extends Seeder
      */
     public function run()
     {
-        $statesJson ='
+        $statesJson = '
         [{
             "name": "Badakhshan",
             "country_id": 1
@@ -16100,8 +16100,8 @@ class StatesSeeder extends Seeder
         ';
 
         $statesArray = json_decode($statesJson, true);
-        
-       // var_dump(json_decode($statesArray, true));
+
+        // var_dump(json_decode($statesArray, true));
 
         DB::table('states')->insert($statesArray);
     }

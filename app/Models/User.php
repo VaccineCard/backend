@@ -33,12 +33,14 @@ class User extends Authenticatable
         return $this->hasOne(Vaccinator::class);
     }
 
-    public function family_sender () {
+    public function family_sender()
+    {
         return $this->hasMany(FamilyLink::class, 'user_id');
     }
 
-    public function family_recive () {
-        return $this->hasMany(FamilyLink::class, 'family_id')->where('state', 2 );
+    public function family_recive()
+    {
+        return $this->hasMany(FamilyLink::class, 'family_id')->where('state', 2);
     }
 
     public function families()
@@ -46,7 +48,8 @@ class User extends Authenticatable
         return $this->family_sender()->union($this->family_recive()->toBase());
     }
 
-    public function vaccines () {
+    public function vaccines()
+    {
         return $this->hasMany(UserVaccine::class);
     }
 }

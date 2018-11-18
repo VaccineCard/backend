@@ -8,12 +8,13 @@ class Vaccine extends Model
 {
     protected $guarded = [];
 
-
-    public function users() {
+    public function users()
+    {
         return $this->hasMany(UserVaccine::class);
     }
 
-    public function centers () {
-      return $this->hasMany(VaccineCard::class);
+    public function centers()
+    {
+        return $this->hasMany(VaccineCard::class);
     }
 }

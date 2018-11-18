@@ -20,18 +20,18 @@ class VaccineController extends Controller
         ], 200);
     }
 
+    /**
+     * @method GET
+     * @param int $vaccine_id
+     */
 
-  /**
-    * @method GET
-    * @param int $vaccine_id
-    */
+    public function getAllVaccines()
+    {
+        $vaccines = Vaccine::all();
 
-    public function getAllVaccines () {
-      $vaccines = Vaccine::all();
-
-      return response()->json([
-          "vaccines" => $vaccines,
-      ], 200);
+        return response()->json([
+            "vaccines" => $vaccines,
+        ], 200);
     }
 
     /**
@@ -68,20 +68,21 @@ class VaccineController extends Controller
      * @method DELETE
      * @param Request $request
      */
-    public function removeVaccine (Request $request) {
+    public function removeVaccine(Request $request)
+    {
         $request->validate([
-            "vaccine_id" => "required|integer"
+            "vaccine_id" => "required|integer",
         ]);
 
         $vaccine = (object) $request->only("vaccine_id");
-        if(Vaccine::where('id',$vaccine->vaccine_id)->delete()) {
+        if (Vaccine::where('id', $vaccine->vaccine_id)->delete()) {
             return response()->json([
-                "success" => "The vaccine was deleted!"
+                "success" => "The vaccine was deleted!",
             ], 200);
         }
 
         return response()->json([
-            "error" => "The vaccine was not deleted!"
+            "error" => "The vaccine was not deleted!",
         ], 200);
     }
 }

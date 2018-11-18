@@ -3,13 +3,17 @@
 namespace VaccineCard\Http\Controllers;
 
 use Illuminate\Http\Request;
-use VaccineCard\Models\User;
-
 use JWTAuth;
+use VaccineCard\Models\User;
 
 class AuthController extends Controller
 {
-    public function signin (Request $request) {
+    /**
+     * @method POST
+     * @param Request $request
+     */
+    public function signin(Request $request)
+    {
 
         $request->validate([
             'email' => 'required|email',
@@ -21,37 +25,45 @@ class AuthController extends Controller
         return $this->checkIfUserWasAuthenticate($credentials);
     }
 
+    /**
+     * @param Array $credentials
+     */
     protected function checkIfUserWasAuthenticate($credentials)
     {
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
-                    'error' => 'Invalid Credentials!'
+                    'error' => 'Invalid Credentials!',
                 ], 401);
             }
 
             $user = User::where("email", $credentials["email"])->first();
 
             return response()->json([
-                    'token' => $token,
-                    'user' => $user
-                ], 200);
+                'token' => $token,
+                'user' => $user,
+            ], 200);
 
         } catch (JWTException $e) {
             return response()->json([
-                'error' => 'Could not create token!'
+                'error' => 'Could not create token!',
             ], 500);
         }
     }
 
-    public function signup (Request $request) {
-        
+    /**
+     * @method POST
+     * @param Request $request
+     */
+    public function signup(Request $request)
+    {
+
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'phone' => 'required',
-            'birth' => 'required'
+            'birth' => 'required',
         ]);
 
         $user = $request->only(
@@ -66,7 +78,7 @@ class AuthController extends Controller
         );
 
         $user['password'] = bcrypt($user['password']);
-        
+
         $response = User::create($user);
 
         return response()->json(['success' => 'User Created with success!!!'], 201);

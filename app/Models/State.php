@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-    public function users () {
+    public function users()
+    {
         return $this->hasMany(User::class);
     }
 
-    public function country () {
+    public function country()
+    {
         return $this->belongsTo(Country::class);
     }
 }
