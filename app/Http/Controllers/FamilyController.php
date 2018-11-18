@@ -38,6 +38,7 @@ class FamilyController extends Controller
         $request->validate([
             'user_id' => 'required',
             'family_email' => 'required',
+            'grade' => 'required'
         ]);
 
         $newMember = (object) $request->only('user_id', 'family_email');
