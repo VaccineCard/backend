@@ -12,4 +12,8 @@ class Vaccine extends Model
     public function users() {
         return $this->hasMany(UserVaccine::class);
     }
+
+    public function centers () {
+      return $this->hasMany(VaccineCard::class);
+    }
 }

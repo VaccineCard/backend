@@ -58,14 +58,47 @@ class CenterController extends Controller
 
     /**
     * @method GET
-    * @param Array $payload
+    * @param int $vaccine_id
+    * @param string $category
     */
 
-    public function getVaccineCenters (Array $payload)
+    public function getVaccineCenters (int $vaccine_id, string $category)
     {
 
-      //
-      $payload = (object) $payload;
+      // Comming data like  { vaccine_id and category center }
+      $centers = VaccineCenter::where('vaccine_id', $vaccine_id)
+                                      ->first();
+
+      $avalibleCenters = [];
+      if(! empty($centers)) $avalibleCenters = $centers->centers($category);
+
+      return $avalibleCenters;
+    }
+
+    public function addNewVaccineToCenter (Request $request) {
+
+      $request->validate([
+        "vaccine_id" => "required|integer",
+        "center_id" => "required|integer"
+      ]);
+
+      $newVaccineCenter = $request->only("vaccine_id", "center_id");
+
+      $newVaccineCenter["state"] = 1;
+
+      $register = VaccineCenter::firstOrNew($newVaccineCenter);
+
+      if (!$register['id']) {
+        $register->save();
+
+        return response()->json([
+            "success" => "Vaccine was add to the center"
+        ], 201);
+      }
+
+      return response()->json([
+        "error" => "The vaccine already exists"
+      ], 401);
     }
 
     /**
