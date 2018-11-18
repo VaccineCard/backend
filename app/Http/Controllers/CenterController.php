@@ -79,7 +79,9 @@ class CenterController extends Controller
 
       }
 
-      return $avalibleCenters;
+      return response()->json([
+        "centers" => $avalibleCenters
+      ], 200);
     }
 
     public function addNewVaccineToCenter (Request $request) {
