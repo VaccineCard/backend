@@ -55,6 +55,7 @@ Route::middleware('auth.jwt')->prefix('/doctors')->group(function () {
 
 
 Route::middleware('auth.jwt')->prefix('/vaccines')->group(function () {
+    Route::get('/', 'VaccineController@getAllVaccines');
     Route::get('{id?}', 'VaccineController@getVaccine');
     Route::post('add', 'VaccineController@addNewVaccine');
     Route::delete('remove', 'VaccineController@removeVaccine');
@@ -62,6 +63,7 @@ Route::middleware('auth.jwt')->prefix('/vaccines')->group(function () {
 
 Route::middleware('auth.jwt')->prefix('/centers')->group(function () {
     Route::get('{id?}', 'CenterController@getCenterByCategory');
+    Route::get('vaccines/{payload}', 'CenterController@getVaccineCenters');
     Route::post('add', 'CenterController@createNewCenter');
     Route::delete('remove', 'CenterController@removeCenter');
 

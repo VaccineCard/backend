@@ -20,6 +20,20 @@ class VaccineController extends Controller
         ], 200);
     }
 
+
+  /**
+    * @method GET
+    * @param int $vaccine_id
+    */
+
+    public function getAllVaccines () {
+      $vaccines = Vaccine::all();
+
+      return response()->json([
+          "vaccines" => $vaccines,
+      ], 200);
+    }
+
     /**
      * @method POST
      * @param Request $request
