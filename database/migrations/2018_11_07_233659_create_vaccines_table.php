@@ -17,6 +17,7 @@ class CreateVaccinesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->enum('type', ['polio', 'febre']);
+            $table->enum('to', ['Adult', 'Child']);
             $table->integer('vaccine_code');
             $table->date('expire_at');
             $table->timestamps();

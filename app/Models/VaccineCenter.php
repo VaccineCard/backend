@@ -10,12 +10,21 @@ class VaccineCenter extends Model
 
     protected $guarded = [];
 
+    /**
+     * @param $focus
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function centers($focus)
     {
         return $this->belongsTo(Center::class, 'center_id')->where('focus', $focus)->get();
     }
-    public function vaccines()
+
+    /**
+     * @param $category
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function vaccines($category)
     {
-        return $this->belongsTo(Vaccine::class, 'vaccine_id');
+        return $this->belongsTo(Vaccine::class, 'vaccine_id')->where('to', $category)->get();
     }
 }

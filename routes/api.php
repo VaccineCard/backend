@@ -46,7 +46,7 @@ Route::middleware('auth.jwt')->prefix('/doctors')->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::put('update/{id}', 'DoctorController@updateInformation');
-        Route::post('register', 'DoctorController@registerDoctor');
+        Route::post('registerdoctor', 'DoctorController@registerDoctor');
         Route::post('registervaccine', 'DoctorController@registerVaccine');
     });
 });

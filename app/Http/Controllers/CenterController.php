@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use VaccineCard\Models\Center;
 use VaccineCard\Models\State;
 use VaccineCard\Models\VaccineCenter;
+use VaccineCard\Models\Vaccine;
 
 class CenterController extends Controller
 {
@@ -71,7 +72,7 @@ class CenterController extends Controller
 
         $avalibleCenters = [];
         if (!empty($centers)) {
-            $avalibleCenters = $centers->centers($category);
+            $avalibleCenters = $centers->vaccines($category);
         }
 
         foreach ($avalibleCenters as $key => $center) {
