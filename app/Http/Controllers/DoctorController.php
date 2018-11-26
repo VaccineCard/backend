@@ -13,6 +13,7 @@ class DoctorController extends Controller
     /**
      * @method GET
      * @param int $doctor_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getDoctor(int $doctor_id)
     {
@@ -31,6 +32,7 @@ class DoctorController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function registerDoctor(Request $request)
     {
@@ -74,6 +76,7 @@ class DoctorController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function addNewPatient(Request $request)
     {
@@ -82,9 +85,9 @@ class DoctorController extends Controller
             "vaccinator_id" => "required",
         ]);
 
-        $newPacient = (object) $request->only("user_email", "vaccinator_id");
+        $newPatient = (object) $request->only("user_email", "vaccinator_id");
 
-        $user = User::where("email", $newPacient->user_email)->first();
+        $user = User::where("email", $newPatient->user_email)->first();
 
         if (!$user['id']) {
             return response()->json([
@@ -92,15 +95,15 @@ class DoctorController extends Controller
             ], 401);
         }
 
-        $newPacient->user_id = $user['id'];
+        $newPatient->user_id = $user['id'];
 
-        $newPacient->state = 1;
+        $newPatient->state = 1;
 
-        unset($newPacient->user_email);
+        unset($newPatient->user_email);
 
         unset($user);
 
-        $req = UserVaccinator::firstOrNew((array) $newPacient);
+        $req = UserVaccinator::firstOrNew((array) $newPatient);
 
         if ($req['id']) {
             return response()->json([
@@ -119,6 +122,7 @@ class DoctorController extends Controller
     /**
      * @method GET
      * @param int $doctor_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getAllPatients(int $doctor_id)
     {
@@ -132,6 +136,7 @@ class DoctorController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function registerVaccine(Request $request)
     {
@@ -159,6 +164,7 @@ class DoctorController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function removePatient(Request $request)
@@ -168,9 +174,9 @@ class DoctorController extends Controller
             "vaccinator_id" => "required",
         ]);
 
-        $newPacient = $request->only("user_id", "vaccinator_id");
+        $newPatient = $request->only("user_id", "vaccinator_id");
 
-        $req = UserVaccinator::where($newPacient)->first();
+        $req = UserVaccinator::where($newPatient)->first();
 
         if (!$req['id']) {
             return response()->json([

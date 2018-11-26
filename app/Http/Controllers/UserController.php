@@ -10,6 +10,7 @@ class UserController extends Controller
     /**
      * @method GET
      * @param int $country_id
+     * @return \Illuminate\Http\JsonResponse
      */
     protected function getUserInformationById(int $user_id)
     {

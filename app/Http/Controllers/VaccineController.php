@@ -10,6 +10,7 @@ class VaccineController extends Controller
     /**
      * @method GET
      * @param int $vaccine_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getVaccine(int $vaccine_id)
     {
@@ -22,7 +23,7 @@ class VaccineController extends Controller
 
     /**
      * @method GET
-     * @param int $vaccine_id
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function getAllVaccines()
@@ -37,6 +38,7 @@ class VaccineController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function addNewVaccine(Request $request)
@@ -67,6 +69,7 @@ class VaccineController extends Controller
     /**
      * @method DELETE
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function removeVaccine(Request $request)
     {

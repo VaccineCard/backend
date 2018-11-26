@@ -11,6 +11,7 @@ class FamilyController extends Controller
     /**
      * @method GET
      * @param int $user_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getMembers(int $user_id)
     {
@@ -32,6 +33,7 @@ class FamilyController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function addNewMember(Request $request)
     {
@@ -70,6 +72,7 @@ class FamilyController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function confirmMember(Request $request)
@@ -84,13 +87,13 @@ class FamilyController extends Controller
 
         if ($family->state == 2) {
             if ($queue->method) {
-                $res = $family->update(['state' => 2]);
+                $family->update(['state' => 2]);
                 return response()->json([
                     "success" => "The family state was updated!",
                 ], 200);
             }
 
-            $res = $family->delete();
+            $family->delete();
             return response()->json([
                 "warn" => "The family link was deleted!",
             ], 200);

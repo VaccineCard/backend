@@ -11,6 +11,7 @@ class AuthController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function signin(Request $request)
     {
@@ -27,6 +28,7 @@ class AuthController extends Controller
 
     /**
      * @param Array $credentials
+     * @return \Illuminate\Http\JsonResponse
      */
     protected function checkIfUserWasAuthenticate($credentials)
     {
@@ -54,6 +56,7 @@ class AuthController extends Controller
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function signup(Request $request)
     {

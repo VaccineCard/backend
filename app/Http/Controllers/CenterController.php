@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use VaccineCard\Models\Center;
 use VaccineCard\Models\State;
 use VaccineCard\Models\VaccineCenter;
-use VaccineCard\Models\Vaccine;
 
 class CenterController extends Controller
 {
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createNewCenter(Request $request)
     {
@@ -45,6 +45,7 @@ class CenterController extends Controller
     /**
      * @method GET
      * @param String $category
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getCenterByCategory(String $category)
     {
@@ -61,34 +62,36 @@ class CenterController extends Controller
      * @method GET
      * @param int $vaccine_id
      * @param string $category
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function getVaccineCenters(int $vaccine_id, string $category)
     {
 
-        // Comming data like  { vaccine_id and category center }
+        // Coming data like  { vaccine_id and category center }
         $centers = VaccineCenter::where('vaccine_id', $vaccine_id)
             ->first();
 
-        $avalibleCenters = [];
+        $availableCenters = [];
         if (!empty($centers)) {
-            $avalibleCenters = $centers->vaccines($category);
+            $availableCenters = $centers->vaccines($category);
         }
 
-        foreach ($avalibleCenters as $key => $center) {
-            $avalibleCenters[$key]["state_id"] = State::find($center['id'])['name'];
-            $avalibleCenters[$key]["country_id"] = State::find($center['id'])->country['name'];
+        foreach ($availableCenters as $key => $center) {
+            $availableCenters[$key]["state_id"] = State::find($center['id'])['name'];
+            $availableCenters[$key]["country_id"] = State::find($center['id'])->country['name'];
 
         }
 
         return response()->json([
-            "centers" => $avalibleCenters,
+            "centers" => $availableCenters,
         ], 200);
     }
 
     /**
      * @method POST
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function addNewVaccineToCenter(Request $request)
     {
@@ -120,6 +123,8 @@ class CenterController extends Controller
     /**
      * @method DELETE
      * @param Request $request
+
+     * @return \Illuminate\Http\JsonResponse
      */
     public function removeCenter(Request $request)
     {

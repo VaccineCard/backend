@@ -21,6 +21,7 @@ class LocationController extends Controller
     /**
      * @method GET
      * @param int $country_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getCountry(int $country_id)
     {
@@ -34,6 +35,7 @@ class LocationController extends Controller
     /**
      * @method GET
      * @param int $country_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getStates(int $country_id)
     {
@@ -47,6 +49,7 @@ class LocationController extends Controller
     /**
      * @method GET
      * @param int $state_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getState(int $state_id)
     {
