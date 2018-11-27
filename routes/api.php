@@ -53,6 +53,7 @@ Route::middleware('auth.jwt')->prefix('/doctors')->group(function () {
 
 Route::middleware('auth.jwt')->prefix('/vaccines')->group(function () {
     Route::get('/', 'VaccineController@getAllVaccines');
+    Route::get('/{to}', 'VaccineController@getVaccinesByTo');
     Route::get('{id?}', 'VaccineController@getVaccine');
     Route::post('/', 'VaccineController@addNewVaccine');
     Route::delete('/', 'VaccineController@removeVaccine');

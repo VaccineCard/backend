@@ -36,6 +36,18 @@ class VaccineController extends Controller
     }
 
     /**
+     * @method GET
+     * @param String $to
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getVaccinesByTo(String $to) {
+        $vaccines = Vaccine::where('to', $to)->get();
+
+        return response()->json([
+            "vaccines" => $vaccines
+        ], 200);
+    }
+    /**
      * @method POST
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -47,10 +59,11 @@ class VaccineController extends Controller
             "name" => "required",
             "type" => "required",
             "vaccine_code" => "required|integer",
+            "to" => "required",
             "expire_at" => "required|date",
         ]);
 
-        $vaccine = $request->only("name", "type", "vaccine_code", "expire_at");
+        $vaccine = $request->only("name", "type", "vaccine_code", "expire_at", "to");
 
         $new = Vaccine::firstOrNew($vaccine);
         if ($new['id']) {
