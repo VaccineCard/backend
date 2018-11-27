@@ -60,9 +60,9 @@ Route::middleware('auth.jwt')->prefix('/vaccines')->group(function () {
 });
 
 Route::prefix('/centers')->group(function () {
-    Route::get('{id?}', 'CenterController@getCenterByCategory');
-    Route::post('', 'CenterController@createNewCenter');
-    Route::delete('', 'CenterController@removeCenter');
+    Route::get('/{id?}', 'CenterController@getCenterByCategory');
+    Route::post('/', 'CenterController@createNewCenter');
+    Route::delete('/', 'CenterController@removeCenter');
 
     Route::prefix('doctor')->group(function () {
         Route::post('confirm', 'CenterController@corfirmDoctor');
