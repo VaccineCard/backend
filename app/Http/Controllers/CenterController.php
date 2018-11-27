@@ -80,6 +80,8 @@ class CenterController extends Controller
         foreach ($availableCenters as $key => $center) {
             $availableCenters[$key]["state_id"] = State::find($center['id'])['name'];
             $availableCenters[$key]["country_id"] = State::find($center['id'])->country['name'];
+            $availableCenters[$key]["latitude"] = Center::find($center['id'])['latitude'];
+            $availableCenters[$key]["longitude"] = Center::find($center['id'])['longitude'];
 
         }
 

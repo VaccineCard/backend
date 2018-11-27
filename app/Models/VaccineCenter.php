@@ -16,7 +16,7 @@ class VaccineCenter extends Model
      */
     public function centers($focus)
     {
-        return $this->belongsTo(Center::class, 'center_id')->where('focus', $focus)->get();
+        return $this->belongsTo(Center::class, 'center_id');
     }
 
     /**
