@@ -20,12 +20,12 @@ class CenterController extends Controller
             "name" => "required",
             "state_id" => "required|integer",
             "country_id" => "required|integer",
-            "focus" => "required",
+            // "focus" => "required",
             "latitude" => "required",
             "longitude" => "required",
         ]);
 
-        $center = $request->only("name", "state_id", "country_id", "focus", "latitude", "longitude");
+        $center = $request->only("name", "state_id", "country_id", "latitude", "longitude");
 
         $create = Center::firstOrNew($center);
 
