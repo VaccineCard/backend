@@ -79,6 +79,11 @@ class AlterTablesContraints extends Migration
         Schema::table('states', function (Blueprint $table) {
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
+
+        Schema::table('children', function (Blueprint $table) {
+            $table->foreign('father_id')->references('id')->on('users');
+            $table->foreign('mother_id')->references('id')->on('users');
+        });
     }
 
     /**

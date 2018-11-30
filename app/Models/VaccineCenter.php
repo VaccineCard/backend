@@ -12,7 +12,7 @@ class VaccineCenter extends Model
 
     /**
      * @param $focus
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function centers($focus)
     {
