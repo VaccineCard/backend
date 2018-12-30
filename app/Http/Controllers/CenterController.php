@@ -5,6 +5,7 @@ namespace VaccineCard\Http\Controllers;
 use Illuminate\Http\Request;
 use VaccineCard\Models\Center;
 use VaccineCard\Models\State;
+use VaccineCard\Models\VaccinatorCenter;
 use VaccineCard\Models\VaccineCenter;
 
 class CenterController extends Controller
@@ -149,5 +150,79 @@ class CenterController extends Controller
         return response()->json([
             "error" => "Center does not exists",
         ], 401);
+    }
+
+    /**
+     * - (Prefixo) doctor {
+     *  -(POST) confirm
+     *  - (DELETE) remove/{id?}
+     *       }
+     */
+
+    public function confirmNewDoctor(Request $request)
+    {
+
+        $request->validate([
+            "doctor_id" => "required",
+            "center_id" => "required",
+            "method" => "required",
+        ]);
+
+        $queue = (object) $request->only('doctor_id', 'center_id', "method");
+
+        $statusOfDoctor = VaccinatorCenter::where("vaccinator_id", $queue->doctor_id)
+            ->where("center_id", $queue->center_id)
+            ->firstOrFail();
+
+        if ($queue->method) {
+            if ($statusOfDoctor->state === 2) {
+                return response()->json([
+                    "warn" => "The vaccinator has already been confirmed!",
+                ], 200);
+            }
+
+            $statusOfDoctor->state = 2;
+            $statusOfDoctor->save();
+
+            return response()->json([
+                "success" => "The vaccinator was confirmed!",
+            ], 200);
+        }
+        if ($statusOfDoctor->state !== 2) {
+            $statusOfDoctor->delete();
+
+            return response()->json([
+                "success" => "The vaccinator link has deleted!",
+            ], 200);
+        }
+
+        return response()->json([
+            "data" => [],
+        ], 200);
+    }
+
+    public function removeDoctor(Request $request)
+    {
+        $request->validate([
+            "doctor_id" => "required",
+            "center_id" => "required",
+        ]);
+
+        $queue = (object) $request->only('doctor_id', 'center_id');
+
+        $deletedDoctor = VaccinatorCenter::where("vaccinator_id", $queue->doctor_id)
+            ->where("center_id", $queue->center_id)
+            ->delete();
+
+        if (!$deletedDoctor) {
+
+            return response()->json([
+                "error" => "The link between Vaccinator and Center, not found!",
+            ], 404);
+        }
+
+        return response()->json([
+            "success" => "The vaccinator link has deleted!",
+        ], 200);
     }
 }
