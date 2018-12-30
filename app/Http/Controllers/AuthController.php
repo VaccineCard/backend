@@ -63,7 +63,7 @@ class AuthController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required',
             'phone' => 'required',
             'birth' => 'required',
@@ -82,8 +82,12 @@ class AuthController extends Controller
 
         $user['password'] = bcrypt($user['password']);
 
-        $response = User::create($user);
+        $response = User::firstOrNew($user);
 
-        return response()->json(['success' => 'User Created with success!!!'], 201);
+        if (!$response["id"]) {
+            $response->save();
+            return response()->json(['success' => 'User Created with success!!!'], 201);
+        } 
+        return response()->json(['warn' => 'User already exist!!!'], 200);
     }
 }
