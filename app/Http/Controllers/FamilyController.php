@@ -85,7 +85,7 @@ class FamilyController extends Controller
         $queue = (object) $request->only('link_id', 'method');
         $family = FamilyLink::find($queue->link_id);
 
-        if ($family->state == 2) {
+        if ($family->state === 1) {
             if ($queue->method) {
                 $family->update(['state' => 2]);
                 return response()->json([
