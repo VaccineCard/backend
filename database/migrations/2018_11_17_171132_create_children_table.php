@@ -18,11 +18,11 @@ class CreateChildrenTable extends Migration
             $table->string('name');
             $table->date('birth');
             $table->integer('father_id')->unsigned();
-            $table->name('father_name')->nullable();
+            $table->string('father_name')->nullable();
             $table->integer('mother_id')->unsigned();
-            $table->name('mother_name')->nullable();
-            $table->avatar('child_avatar');
-            $table->avatar('child_card');
+            $table->string('mother_name')->nullable();
+            $table->string('child_avatar');
+            $table->string('child_card');
             $table->timestamps();
         });
     }

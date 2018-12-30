@@ -65,8 +65,8 @@ Route::prefix('/centers')->group(function () {
     Route::delete('/', 'CenterController@removeCenter');
 
     Route::prefix('doctor')->group(function () {
-        Route::post('confirm', 'CenterController@corfirmDoctor');
-        Route::delete('remove/{id}', 'CenterController@removeDoctor');
+        Route::post('confirm', 'CenterController@confirmNewDoctor');
+        Route::delete('remove', 'CenterController@removeDoctor');
     });
 
     Route::prefix('vaccines')->group(function () {
