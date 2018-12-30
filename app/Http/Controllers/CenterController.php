@@ -151,14 +151,7 @@ class CenterController extends Controller
             "error" => "Center does not exists",
         ], 401);
     }
-
-    /**
-     * - (Prefixo) doctor {
-     *  -(POST) confirm
-     *  - (DELETE) remove/{id?}
-     *       }
-     */
-
+    
     public function confirmNewDoctor(Request $request)
     {
 
